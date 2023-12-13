@@ -5,9 +5,8 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"log"
-
 	"github.com/nats-io/nats.go"
+	"log"
 	"wb_task1/models"
 	"wb_task1/repository"
 )
@@ -30,7 +29,6 @@ func NewApp(db *sql.DB, nc *nats.Conn) *App {
 }
 
 func (a *App) Run(ctx context.Context) error {
-	// Подписка на канал
 	sub, err := a.nc.SubscribeSync("your_subject")
 	if err != nil {
 		log.Fatal(err)
@@ -62,5 +60,8 @@ func (a *App) Run(ctx context.Context) error {
 		fmt.Printf("del order id = %d\n", doId)
 		//TODO
 
+		break // TODO DELETE
+
 	}
+	return nil
 }

@@ -3,7 +3,7 @@ package models
 type DeliveryOrder struct {
 	Name    string `json:"name"`
 	Phone   string `json:"phone"`
-	Zip     string `json:"zip"`
+	Zip     int64  `json:"zip"`
 	City    string `json:"city"`
 	Address string `json:"address"`
 	Region  string `json:"region"`

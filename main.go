@@ -3,8 +3,10 @@ package main
 import (
 	"context"
 	"database/sql"
-	"github.com/nats-io/nats.go"
 	"log"
+
+	_ "github.com/lib/pq"
+	"github.com/nats-io/nats.go"
 )
 
 func main() {
