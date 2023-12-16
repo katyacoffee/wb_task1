@@ -6,7 +6,6 @@ import (
 	"log"
 
 	_ "github.com/lib/pq"
-	"github.com/nats-io/nats.go"
 )
 
 func main() {
@@ -18,13 +17,14 @@ func main() {
 	defer db.Close()
 
 	// Подключение к серверу NATS Streaming
-	nc, err := nats.Connect("nats://localhost:4222")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer nc.Close()
+	//nc, err := nats.Connect("nats://localhost:4222")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//defer nc.Close()
 
-	app := NewApp(db, nc)
+	//app := NewApp(db, nc)
+	app := NewApp(db, nil)
 	err = app.Run(context.Background())
 	if err != nil {
 		log.Fatal(err)
